@@ -8,7 +8,7 @@ public class PropertiesFileReader {
 
 
 	private Properties properties;
-	private final String commonPropertyFilePath= "src/test/resources/configuration/system/common.configuration.properties";
+	private final String commonPropertyFilePath= "resources\\common.configuration.properties";
 	public PropertiesFileReader(){
 		BufferedReader reader;
 		BufferedReader commonReader;
@@ -34,10 +34,10 @@ public class PropertiesFileReader {
 		String env = "qa";
 
 		if (env.equalsIgnoreCase("qa")) {
-			return "src/test/resources/configuration/qa/qa.configuration.properties";
+			return "resources\\common.configuration.properties";
 		}else{
 			//Repeating this line. Replace this with the default option in case no environment is provided
-			return "src/test/resources/configuration/qa/qa.configuration.properties";
+			return "resources\\common.configuration.properties";
 		}
 
 	}
@@ -56,43 +56,18 @@ public class PropertiesFileReader {
 	//User details
 
 
-	//Administrador de Sistema 
-	public String getAdminSystemName() {
-		String username = properties.getProperty("admin.system.name");
+	//Test User
+	public String getTestUserName() {
+		String username = properties.getProperty("test.username");
 		if(username != null) return username;
 		else throw new RuntimeException("username not specified in the common.properties file.");
 	}
 
-	public String getAdminSystemPassword() {
-		String password = properties.getProperty("admin.system.password");
+	public String getTestPassword() {
+		String password = properties.getProperty("test.password");
 		if(password != null) return password;
 		else throw new RuntimeException("password not specified in the common.properties file.");
 	}
 
-	//Administrador Comercial Industrias
-	public String getAdminComercialIndName() {
-		String username = properties.getProperty("admin.comercial.name");
-		if(username != null) return username;
-		else throw new RuntimeException("username not specified in the setup.properties file.");
-	}
-	public String getAdminComercialIndPasswrod() {
-		String password = properties.getProperty("admin.comercial.password");
-		if(password != null) return password;
-		else throw new RuntimeException("password not specified in the setup.properties file.");
-	}
 	
-	//Automation User
-	public String getAutomationUserName() {
-		String username = properties.getProperty("automation.name");
-		if(username != null) return username;
-		else throw new RuntimeException("username not specified in the setup.properties file.");
-	}
-	public String getAutomationUserPasswrod() {
-		String password = properties.getProperty("automation.password");
-		if(password != null) return password;
-		else throw new RuntimeException("password not specified in the setup.properties file.");
-	}
-
-
-
 }

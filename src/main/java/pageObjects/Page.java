@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+
+import pageConstants.AccountPageConstants;
 import pageConstants.Page_Constants;
 import util.PropertiesFileReader;
 import util.UIUtilities;
@@ -100,6 +102,12 @@ public class Page {
 		return newRecordBtn;
 	}
 	
+	@FindBy(xpath = Page_Constants.SAVE_BTN)
+	private WebElement saveBtn;
+	public WebElement getSaveBtn() {
+		return saveBtn;
+	}	
+	
 public  WebDriver userLogIn (WebDriver driver, String username, String password) throws Exception {
 		UIUtilities util = new UIUtilities(driver);
 		PropertiesFileReader prop = new PropertiesFileReader();
@@ -132,7 +140,7 @@ public  WebDriver userLogIn (WebDriver driver, String username, String password)
 		driver.navigate().refresh();
 		UIUtilities util = new UIUtilities (driver);
 		util.waitForPageToLoad(5000);
-		util.jsClick(getAppLauncherIcon(), driver);
+		getAppLauncherIcon().click();
 		util.waitForPageToLoad(3000);
 		util.jsClick(getAppViewAllLnk(), driver);
 		//getAppViewAllLnk().click();
@@ -151,41 +159,13 @@ public  WebDriver userLogIn (WebDriver driver, String username, String password)
 	public void openTab(String tabName, WebDriver driver) throws Exception {
 		
 		UIUtilities util = new UIUtilities (driver);
-		util.waitForElementToBeDisplayed(driver, getAppIframe());
-		driver.switchTo().frame(getAppIframe());
-		util.waitForPageToLoad(1000);
+				util.waitForPageToLoad(1000);
 		util.waitForElementToBeDisplayed(driver, getAppTabName(tabName, driver));
 		getAppTabName(tabName, driver).click();
 		util.waitForPageToLoad(3000);
 		
 	}
-	//YPF Industrias App
-	/*
-	 * Navigate to an Item from Industrias Menu
-	 */	
-	@FindBy(xpath = Page_Constants.APP_MENU)
-	private WebElement appMenu;
-	public WebElement getIndMenu() {
-		return appMenu;
-	}
-	
-	@FindBy(xpath = Page_Constants.MENU_OPTION)
-	private WebElement menuOption;
-	public WebElement getIndMenuOption(String menuItem, WebDriver driver) {
-		return menuOption = driver.findElement(By.xpath(Page_Constants.MENU_OPTION.replace("+@MENU_ITEM+", menuItem)));
-	}
-	
-	public void openItemFromMenu(String itemName, WebDriver driver) throws Exception {
-		UIUtilities util = new UIUtilities (driver);
-		util.waitForElementVisible(appMenu);
-		util.waitForPageToLoad(2000);
-		util.jsClick(getIndMenu(), driver);
-		util.waitForPageToLoad(2000);
-		util.waitForElementVisible(getIndMenuOption(itemName, driver));
-		util.jsClick(getIndMenuOption(itemName, driver), driver);
-		util.waitForPageToLoad(2000);
-		
-	}	
+
 	public  String getRecordIdFromUrl(WebDriver driver) throws MalformedURLException, InterruptedException {
 		Thread.sleep(3000);
 		String[] url = driver.getCurrentUrl().split("/");

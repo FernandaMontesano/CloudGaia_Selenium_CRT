@@ -11,10 +11,10 @@ public class Page_Constants {
 
 	//Salesforce app launcher
 
-	public static final String APP_LAUNCHER_ICON = "//div[@class ='slds-icon-waffle']/ancestor::button";
+	public static final String APP_LAUNCHER_ICON = "//div[@class ='slds-icon-waffle']/ancestor::button/div";
 	public static final String APP_VIEW_ALL_LNK = "//*[contains(text(),'View All')]";//
 	public static final String APP_SEARCH_TXT_FIELD ="//input[@placeholder = 'Search apps and items...']";
-	public static final String APP_SEARCH_FOUND_ITEM="//one-app-launcher-menu-item/a[@data-label = \"Sales\"]";
+	public static final String APP_SEARCH_FOUND_ITEM="//one-app-launcher-menu-item/a[@data-label = 'Sales']";
 
 	//app name , example: Sales
 	public static final String APP_PAGE_TITLE = "//span[@title = '+@APPNAME+']";
@@ -29,7 +29,7 @@ public class Page_Constants {
 	//Create New Record
 
 	public static final String NEW_RECORD_BTN = "//a[@title = 'New']/..";
-	
+	public static final String SAVE_BTN = "//button[@name = 'SaveEdit']";
 	
 	//YPF Industrias APP
 	/*
@@ -38,6 +38,7 @@ public class Page_Constants {
 	
 	public static final String APP_MENU = "//button[@title = 'Mostrar menú de navegación']/span";
 	public static final String MENU_OPTION= "//span[@class= 'slds-media__body']/span[text()='+@MENU_ITEM+']";
+	
 
 
 

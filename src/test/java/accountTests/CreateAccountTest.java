@@ -11,22 +11,12 @@ import util.UIUtilities;
 public class CreateAccountTest extends SeleniumTestBase{
 
 	PropertiesFileReader propertyReader = new PropertiesFileReader();
-	String appName = "Industrias";
-	String itemName = "Cuentas";
-	String recordType = "Minería";
+	String appName = "Sales";
+	String itemName = "Accounts";
 	String accountName = "Auto_Cuenta_"+RandomStringUtils.randomAlphanumeric(16);
-	String accountFantasyName= "AutomationMineria";
-	String cuit = "34429596078";
-	String accountSubcategoria = "Extractivas de Litio";
-	String accountTipodeProceso="Continuo";
-	String regional = "GBA";
-	String calle ="Talcahuano" ;
-	String nro = "6960";
-	String localidad = "COLONIA CARLOS PELLEGRINI";
-	String codigoPostal ="3000";
 	String recordId = "";
 	
-	@Test (groups = { "Regression_Industrias", "Cuentas_Industrias", "Mineria" }, enabled = true )
+	@Test ( enabled = true )
 	public void testCrearCuentaMineria() throws Exception {
 
 		UIUtilities util = new UIUtilities(driver);
@@ -34,9 +24,11 @@ public class CreateAccountTest extends SeleniumTestBase{
 
 		try {
 			
-			ap.userLogIn(driver, propertyReader.getTestUserName(),propertyReader.getTestPassword()); 
+			ap.userLogIn(driver, propertyReader.getTestUserName(),propertyReader.getTestPassword(), appName); 
    			util.waitForPageToLoad(3000);
-	
+			//ap.openItemFromMenu(itemName, driver);
+			//util.waitForElementToBeDisplayed(driver, ap.getNewRecordBtn());
+			
 			System.out.println("Created Account: "+accountName);
 
 		}catch(Exception e) {

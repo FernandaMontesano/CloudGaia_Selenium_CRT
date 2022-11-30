@@ -12,11 +12,11 @@ public class Page_Constants {
 	//Salesforce app launcher
 
 	public static final String APP_LAUNCHER_ICON = "//div[@class ='slds-icon-waffle']/ancestor::button";
-	public static final String APP_VIEW_ALL_LNK = "//*[contains(text(),'Ver Todo')]";//
-	public static final String APP_SEARCH_TXT_FIELD ="//input[@placeholder = 'Buscar aplicaciones y elementos...']";
-	public static final String APP_SEARCH_FOUND_ITEM="//div//p/mark";
+	public static final String APP_VIEW_ALL_LNK = "//*[contains(text(),'View All')]";//
+	public static final String APP_SEARCH_TXT_FIELD ="//input[@placeholder = 'Search apps and items...']";
+	public static final String APP_SEARCH_FOUND_ITEM="//one-app-launcher-menu-item/a[@data-label = \"Sales\"]";
 
-	//app name , example: YPF Agro
+	//app name , example: Sales
 	public static final String APP_PAGE_TITLE = "//span[@title = '+@APPNAME+']";
 
 	public static final String APP_TAB_NAME ="//a[@title = '+@TAB+']/..";// "//a[@title = '+@TAB+']/..";
@@ -28,7 +28,7 @@ public class Page_Constants {
 
 	//Create New Record
 
-	public static final String NEW_RECORD_BTN = "//a[@title = 'Nuevo']/..";
+	public static final String NEW_RECORD_BTN = "//a[@title = 'New']/..";
 	
 	
 	//YPF Industrias APP
@@ -36,8 +36,8 @@ public class Page_Constants {
 	 * Navigate to an Item from Industrias Menu
 	 */	
 	
-	public static final String INDUSTRIAS_MENU = "//button[@title = 'Mostrar menú de navegación']/span";
-	public static final String IND_MENU_OPTION= "//span[@class= 'slds-media__body']/span[text()='+@MENU_ITEM+']";
+	public static final String APP_MENU = "//button[@title = 'Mostrar menú de navegación']/span";
+	public static final String MENU_OPTION= "//span[@class= 'slds-media__body']/span[text()='+@MENU_ITEM+']";
 
 
 

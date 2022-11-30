@@ -133,9 +133,9 @@ public  WebDriver userLogIn (WebDriver driver, String username, String password)
 		UIUtilities util = new UIUtilities (driver);
 		util.waitForPageToLoad(5000);
 		util.jsClick(getAppLauncherIcon(), driver);
-		//getAppLauncherIcon().click();
 		util.waitForPageToLoad(3000);
-		getAppViewAllLnk().click();
+		util.jsClick(getAppViewAllLnk(), driver);
+		//getAppViewAllLnk().click();
 		util.waitForPageToLoad(4000);
 		util.moveToElementAndClick(driver, getAppSearchField());
 		util.waitForPageToLoad(3000);
@@ -163,21 +163,21 @@ public  WebDriver userLogIn (WebDriver driver, String username, String password)
 	/*
 	 * Navigate to an Item from Industrias Menu
 	 */	
-	@FindBy(xpath = Page_Constants.INDUSTRIAS_MENU)
-	private WebElement indMenu;
+	@FindBy(xpath = Page_Constants.APP_MENU)
+	private WebElement appMenu;
 	public WebElement getIndMenu() {
-		return indMenu;
+		return appMenu;
 	}
 	
-	@FindBy(xpath = Page_Constants.IND_MENU_OPTION)
-	private WebElement indMenuOption;
+	@FindBy(xpath = Page_Constants.MENU_OPTION)
+	private WebElement menuOption;
 	public WebElement getIndMenuOption(String menuItem, WebDriver driver) {
-		return indMenuOption = driver.findElement(By.xpath(Page_Constants.IND_MENU_OPTION.replace("+@MENU_ITEM+", menuItem)));
+		return menuOption = driver.findElement(By.xpath(Page_Constants.MENU_OPTION.replace("+@MENU_ITEM+", menuItem)));
 	}
 	
 	public void openItemFromMenu(String itemName, WebDriver driver) throws Exception {
 		UIUtilities util = new UIUtilities (driver);
-		util.waitForElementVisible(indMenu);
+		util.waitForElementVisible(appMenu);
 		util.waitForPageToLoad(2000);
 		util.jsClick(getIndMenu(), driver);
 		util.waitForPageToLoad(2000);

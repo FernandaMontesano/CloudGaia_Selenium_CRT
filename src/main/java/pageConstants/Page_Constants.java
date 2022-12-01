@@ -14,7 +14,7 @@ public class Page_Constants {
 	public static final String APP_LAUNCHER_ICON = "//div[@class ='slds-icon-waffle']/ancestor::button/div";
 	public static final String APP_VIEW_ALL_LNK = "//*[contains(text(),'View All')]";//
 	public static final String APP_SEARCH_TXT_FIELD ="//input[@placeholder = 'Search apps and items...']";
-	public static final String APP_SEARCH_FOUND_ITEM="//one-app-launcher-menu-item/a[@data-label = 'Sales']";
+	public static final String APP_SEARCH_FOUND_ITEM="//one-app-launcher-menu-item/a[@data-label = 'Sales']/..";
 
 	//app name , example: Sales
 	public static final String APP_PAGE_TITLE = "//span[@title = '+@APPNAME+']";

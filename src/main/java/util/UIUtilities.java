@@ -4,6 +4,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -105,5 +106,18 @@ public void moveToElementAndClick(WebDriver driver, WebElement element) {
 	
 	Actions act =  new Actions(driver);
 	act.moveToElement(driver.findElement(By.xpath(getXpathFromWebElement(element)))).click().perform();
+}
+public void clickWithRetry(WebElement element) {
+    int attempts = 0;
+    while(attempts < 5) {
+        try {
+        	jsClick(element, driver);
+            break;
+        }
+        catch(StaleElementReferenceException staleException) {
+            staleException.printStackTrace();
+        }
+        attempts++;
+    }
 }
 }

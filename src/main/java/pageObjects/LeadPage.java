@@ -79,4 +79,41 @@ public class LeadPage extends Page {
 	public WebElement getLeadRatingOption(String rating, WebDriver driver) {
 		return leadRatingOption = driver.findElement(By.xpath(LeadPageConstants.LEAD_RATING_FIELD.replace("+@RATING+", rating)));
 	}
+	@FindBy(xpath = LeadPageConstants.LEAD_SELECT_LIST_VIEWS)
+	private WebElement leadSelectListView;
+	public WebElement getLeadSelectListView() {
+		return leadSelectListView;
+	}
+	@FindBy(xpath = LeadPageConstants.LEAD_OPENLEADS_VIEW)
+	private WebElement openLeadListView;
+	public WebElement getOpenLeadListView() {
+		return openLeadListView;
+	}
+	@FindBy(xpath = LeadPageConstants.LEAD_OPEN_FIRST_RECORD)
+	private WebElement openFirstLeadRecord;
+	public WebElement getOpenFirstLeadRecord() {
+		
+		return openFirstLeadRecord;
+	}
+		
+	@FindBy(xpath = LeadPageConstants.LEAD_CONVERT_BTN)
+	private WebElement leadConvertBtn;
+	public WebElement getLeadConvertBtn() {
+		return leadConvertBtn;
+	}
+	@FindBy(xpath = LeadPageConstants.LEAD_CONVERT_MODAL_BTN)
+	private WebElement leadConvertModalBtn;
+	public WebElement getLeadConvertModalBtn() {
+		return leadConvertModalBtn;
+	}
+	@FindBy(xpath = LeadPageConstants.LEAD_CONVERTED_LEAD_MSG)
+	private WebElement leadConvertedLeadMsg;
+	public WebElement getLeadConvertedLeadMsg() {
+		return leadConvertedLeadMsg;
+	}
+	@FindBy(xpath = LeadPageConstants.LEAD_CONVERT_CLOSE_MODAL)
+	private WebElement leadConvertCloseBtn;
+	public WebElement getLeadConvertCloseBtn() {
+		return leadConvertCloseBtn;
+	}
 }

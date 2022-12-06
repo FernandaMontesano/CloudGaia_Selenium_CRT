@@ -2,12 +2,15 @@ package pageObjects;
 
 
 import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import pageConstants.AccountPageConstants;
+import pageConstants.LeadPageConstants;
 
 public class AccountPage extends Page {
 	
@@ -48,5 +51,37 @@ public class AccountPage extends Page {
 	public WebElement getAccountPhone() {
 		return accountPhone;
 	}
+	@FindBy(xpath = AccountPageConstants.ACCOUNT_TYPE_FIELD)
+	private WebElement accountType;
+	public WebElement getAccountType() {
+		return accountType;
+	}
+	@FindBy(xpath = AccountPageConstants.ACCOUNT_TYPE_OPTION)
+	private WebElement accountTypeOption;
+	public WebElement getAccountTypeOption(String type, WebDriver driver) {
+		return accountTypeOption = driver.findElement(By.xpath(AccountPageConstants.ACCOUNT_TYPE_OPTION.replace("+@TYPE+", type)));
+	}
+	@FindBy(xpath = AccountPageConstants.ACCOUNT_ANNUAL_REVENUE)
+	private WebElement accountAnualRevenue;
+	public WebElement getAccountAnnualRevenue() {
+		return accountAnualRevenue;
+	}
+	@FindBy(xpath = AccountPageConstants.ACCOUNT_INDUSTRY_FIELD)
+	private WebElement accountIndustry;
+	public WebElement getAccountIndustry() {
+		return accountIndustry;
+	}
+	@FindBy(xpath = AccountPageConstants.ACCOUNT_INDUSTRY_OPTION)
+	private WebElement accountIndustryOption;
+	public WebElement getAccountIndustryOption(String industry, WebDriver driver) {
+		return accountIndustryOption = driver.findElement(By.xpath(AccountPageConstants.ACCOUNT_INDUSTRY_OPTION.replace("+@INDUSTRY+", industry)));
+	}
 	
+	/* Account Detail Page elements
+	 */	
+	@FindBy(xpath = AccountPageConstants.ACCOUNT_DP_HEADER_NAME)
+	private WebElement accountDetailPageHeaderName;
+	public WebElement getaccountDetailPageHeaderName() {
+		return accountDetailPageHeaderName;
+	}
 }

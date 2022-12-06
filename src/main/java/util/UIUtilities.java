@@ -1,6 +1,8 @@
 package util;
 
 import java.time.Duration;
+import java.util.Random;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -119,5 +121,25 @@ public void clickWithRetry(WebElement element) {
         }
         attempts++;
     }
+}
+public static String getRandomString(String s) {
+
+    int i = 0;
+    int randomNumber;
+
+    boolean isUpperCase;
+
+    StringBuilder response = new StringBuilder();
+    Random randomNumberGenerator = new Random();
+
+    while (i++ < 5 - s.length()) {
+        isUpperCase = randomNumberGenerator.nextBoolean();
+        randomNumber = randomNumberGenerator.nextInt(26) + 65;
+
+        response.append(isUpperCase ? (char) randomNumber : 
+                      Character.toLowerCase((char) randomNumber));
+    }
+
+    return response.insert(0, s).toString();
 }
 }

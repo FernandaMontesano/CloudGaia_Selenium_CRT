@@ -30,7 +30,7 @@ public class UIUtilities {
 
 	//IMPLICIT WAIT
 	/**
-	 * @param millis Time in milliseconds to wait for the page to Load
+	 * @param seconds Time in milliseconds to wait for the page to Load
 	 */
 	public  void waitForPageToLoad(long seconds) throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
@@ -40,6 +40,12 @@ public class UIUtilities {
 	public  void waitForElementVisible( WebElement element) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(getXpathFromWebElement(element))));
+	}
+
+	public  WebElement waitForElementToBeClickable( WebElement element) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(getXpathFromWebElement(element))));
+		return element;
 	}
 
 	//FLUENT WAIT	
